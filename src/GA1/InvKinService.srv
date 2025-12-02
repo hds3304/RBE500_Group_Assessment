@@ -1,5 +1,0 @@
-geometry_msgs/Pose pose_values
-float32 gripper_orientation
-float32 gripper_value
----
-sensor_msgs/JointState joint_values
