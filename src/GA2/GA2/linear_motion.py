@@ -28,7 +28,7 @@ class LinearMotionTask(Node):
         vy = 20.0 
         vz = 0.0
         
-        duration = 5.0 # Run for 5 seconds
+        duration = 10.0 # Run for 5 seconds
         rate = 10.0    # 10 Hz (matches sampling_time = 0.1s)
         steps = int(duration * rate)
         
