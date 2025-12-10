@@ -31,8 +31,8 @@ public:
         ADDR_GOAL_POSITION   = 116;
         ADDR_PRESENT_POSITION = 132;
 
-        declare_parameter<double>("Kp", 3.0);   // default value
-        declare_parameter<double>("Kd", 0.05);  // default value
+        declare_parameter<double>("Kp", 0.4);   // default value
+        declare_parameter<double>("Kd", 0.0045);  // default value
 
         Kp = get_parameter("Kp").as_double();
         Kd = get_parameter("Kd").as_double();
@@ -317,7 +317,23 @@ int main(int argc, char **argv)
     rclcpp::init(argc, argv);
     auto node = std::make_shared<PDControllerNode>();
 
-    rclcpp::spin(node);
+    auto start = std::chrono::steady_clock::now();
+
+    // Run for 10 seconds
+    while (rclcpp::ok()) {
+        rclcpp::spin_some(node);
+
+        auto now = std::chrono::steady_clock::now();
+        double elapsed = std::chrono::duration<double>(now - start).count();
+
+        if (elapsed >= 10.0) {
+            RCLCPP_INFO(node->get_logger(), "10 seconds elapsed — shutting down.");
+            break;
+        }
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    }
+
     rclcpp::shutdown();
     return 0;
 }

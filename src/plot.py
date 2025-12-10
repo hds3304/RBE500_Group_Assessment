@@ -19,7 +19,7 @@ plt.plot(time_list, actual_list, label='Actual Position', color='blue')
 plt.plot(time_list, target_list, '--', label='Target Position', color='red')  # dotted line
 
 plt.xlabel('Time [s]')
-plt.ylabel('Position [ticks]')
+plt.ylabel('Position [degrees]')
 plt.title('PD Control: Target vs Actual Position')
 plt.legend()
 plt.grid(True)

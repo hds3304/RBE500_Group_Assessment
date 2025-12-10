@@ -11,7 +11,7 @@
 
 2. Terminal 2:
     ```bash
-    ros2 service call /set_j4_reference ga3_srv/srv/J$Control target: 0.0
+    ros2 service call /set_j4_reference ga3_srv/srv/J4Control target_position:\ -90.0\ 
     ```
 
 ### For Graph
