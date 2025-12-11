@@ -6,7 +6,7 @@
 
 1. Terminal 1:
     ```bash
-    ros2 run ga3_cpp control --ros-args -p Kp:=0.4 -p Kd:=0.0045
+    ros2 run GA3 control --ros-args -p Kp:=0.4 -p Kd:=0.0045
     ```
 
 2. Terminal 2:
